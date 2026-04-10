@@ -1,0 +1,84 @@
+# DESIGN.md — bynikistudio.com
+
+## 1. Visual Theme & Atmosphere
+
+Niki Studio's site is a dark-mode branding studio portfolio that wields its primary typeface — Monument Extended Ultrabold — as its central design act. The atmosphere is "unapologetically bold, luxury-dark." At 88px with negative letter-spacing, the display text consumes the viewport like a title sequence. The nearly-black (`rgb(10, 10, 10)`) canvas creates maximum contrast for white type and glass-effect UI elements. This is a portfolio site that performs itself as its own best work.
+
+## 2. Color Palette & Roles
+
+| Role | Value | Notes |
+|------|-------|-------|
+| Page canvas | `rgb(10, 10, 10)` | Near-black — not pure black, a hair off |
+| H1 / display text | `rgb(255, 255, 255)` | Pure white — maximum contrast |
+| Button surface | `rgba(255, 255, 255, 0.1)` | Glass-effect: 10% white opacity |
+| Glass panels | `rgba(255, 255, 255, 0.17)` | Semi-transparent white overlays |
+| Framer section | `rgba(82, 82, 82, 0.12)` | Dark frosted glass — subtle surface separation |
+
+The body color reads as black at the CSS level, but actual text rendering on dark backgrounds uses white via component-level overrides. The design lives in near-black, white, and glass — no hues, no accent colors.
+
+## 3. Typography Rules
+
+**Typefaces**: `Monument Extended Ultrabold` for display; `sans-serif` generic for body and utility elements.
+
+| Selector | Size | Weight | Notes |
+|----------|------|--------|-------|
+| h1 | 88px | 400 (Ultrabold variant) | Display scale — weight baked into font name |
+| body | 16px | 400 | System sans-serif — recedes behind display text |
+| button | 12px | 400 | Micro-scale utility — barely visible, intentional |
+
+- Letter-spacing: `-0.88px` on h1 — the negative tracking on a wide display font is crucial. It prevents the extended letterforms from reading as spaced-out.
+- Line height: 64px at 88px font size (0.73x ratio) — highly compressed for a stacked display effect.
+- **What's absent**: no body-level web fonts, no serif accents, no size gradation between h2–h4. The typographic hierarchy is essentially binary: 88px headline vs. 12–16px everything else.
+
+## 4. Component Stylings
+
+- **Buttons**: `rgba(255,255,255,0.1)` background — glass-pill style, floating on dark canvas.
+- **Glass panels**: `rgba(255,255,255,0.17)` and `rgba(82,82,82,0.12)` — layered transparency creates depth.
+- **Framer sections**: translucent overlay surfaces for testimonial or card content.
+- **No detected box-shadows** — depth through transparency, not shadow.
+- **No border-radius tokens** — shapes are defined at the component level.
+
+## 5. Layout Principles
+
+- The 88px headline consumes the viewport on load — a cinematic above-the-fold approach.
+- Generous dark space below the display text draws attention downward.
+- Glass-effect containers float above the dark canvas — a layered stacking approach.
+- Body content is minimal and peripheral — the portfolio work does the visual selling.
+
+## 6. Depth & Elevation
+
+Glass UI is the depth system. Layering, top to bottom:
+1. Near-black canvas (`#0a0a0a`)
+2. Dark frosted glass (`rgba(82,82,82,0.12)`)
+3. White glass (`rgba(255,255,255,0.1)`)
+4. Bright white glass (`rgba(255,255,255,0.17)`)
+5. Pure white text at the apex
+
+This creates a 5-tier perceptual stack entirely through opacity, without a single drop shadow.
+
+## 7. Do's and Don'ts
+
+**Do:**
+- Use Monument Extended Ultrabold with `letter-spacing: -0.88px` — the negative tracking is non-negotiable at display scale.
+- Keep canvas at `rgb(10, 10, 10)` — not pure black, which reads as flat and printed.
+- Layer glass elements using consistent opacity steps (10%, 17%).
+- Keep button labels at 12px — they are navigational, not CTAs.
+
+**Don't:**
+- Use colored accents on the dark canvas — the power is black/white only.
+- Reduce the display heading below 64px — it needs to overwhelm.
+- Add drop shadows — glass opacity handles all elevation.
+- Mix in a second display typeface — Monument Extended is the entire brand statement.
+
+## 8. Responsive Behavior
+
+- 88px with -0.88px tracking requires aggressive mobile scaling (likely 40–52px).
+- 64px line height at 88px font creates tightly-stacked display text — works for 1–2 word headlines but clips on 3+ words.
+- Glass effects (`backdrop-filter`) need prefixing and support consideration.
+- The dark canvas holds its identity at all viewport sizes — no color shift on mobile.
+
+## 9. Agent Prompt Guide
+
+> Build a dark studio portfolio in the style of Niki Studio: near-black canvas (`rgb(10,10,10)`), Monument Extended Ultrabold at 88px with `letter-spacing: -0.88px` and 64px line-height, white body text, glass-effect UI elements (`rgba(255,255,255,0.1)` buttons, `rgba(255,255,255,0.17)` panels), no shadows, no border-radius. Binary typographic scale: 88px display vs 12–16px utility. No color accents — the design is monochrome by conviction.
+
+*Generated by Sparkbites — extracted from live CSS analysis*

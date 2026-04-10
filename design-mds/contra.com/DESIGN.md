@@ -1,0 +1,107 @@
+# Contra — Design System
+
+## 1. Visual Theme & Atmosphere
+
+Contra occupies the dark-tech-luxury space: a near-black canvas (#0c0c0c) with a lavender-purple accent that suggests both creativity and premium positioning. This is a product built for independent professionals — the visual tone is confident, modern, and slightly editorial. The hero gradient sweeps from white through layered purples into deep indigo, evoking depth and possibility. Inter's extreme negative letter-spacing at display sizes gives headlines a compressed, cinematic quality that feels native to the 2020s web.
+
+---
+
+## 2. Color Palette & Roles
+
+| Role | Value | Notes |
+|------|-------|-------|
+| Page background | `#0c0c0c` | Near-black — dominant surface |
+| Secondary dark | `#111111` | Slightly lighter panels |
+| Primary text | `#ffffff` | White on dark |
+| Secondary text | `#9E9E9E` | Muted grey for supporting copy |
+| Results/data text | `#787878` | Dimmer grey for numbers/labels |
+| Brand purple | `#B7ACFC` | Lavender — primary accent |
+| Purple copy | `#AA7BE4` | Richer violet for headings |
+| UI blue tint | `#D6E9EB` | Teal-blue — data/result backgrounds |
+| Off-white | `#EFEAE8` | Warm white for links/elements |
+| Greyscale UI | `#444444` | Mid-dark for interactive elements |
+| Hero gradient | radial from white → lavender → deep indigo | Hero section only |
+| Mobile results bg | `#eeffff` | Teal tint for mobile result panels |
+
+Dark mode is not a toggle — it is the design. Avoid any light-surface treatment on the main canvas.
+
+---
+
+## 3. Typography Rules
+
+**Primary typeface:** Inter (variable) with system-ui fallback.
+
+| Level | Size | Weight | Line Height | Tracking |
+|-------|------|--------|-------------|----------|
+| h1 | ~58px | 400 | ~64px | -4.66px |
+| h2 | ~36px | 400 | ~43px | -2.91px |
+| h3 | ~22px | 400 | ~26px | -1.75px |
+
+- Inter is used at regular (400) weight even for large headings — size and tracking do the hierarchy work.
+- Extreme negative letter-spacing at large sizes is the defining typographic gesture: -4.66px at 58px.
+- No text transforms, no uppercase convention, no decorative features.
+- Typography scales proportionally — font sizes appear calculated (58.28px, 36.43px) suggesting a fluid/viewport-based scale.
+
+---
+
+## 4. Component Styling
+
+- **Buttons:** Transparent background by default — outline/ghost style on dark.
+- **Dialogs / modals:** White background (#ffffff), dark text (#444444) — inverts the page theme for focus.
+- **Labels:** Transparent, inherit text colour.
+- **Links:** Warm off-white (#efeae8) — distinguishable from pure white content.
+- **Headings (h3):** Purple-tinted (#B7ACFC) — accent colour applied directly to heading text.
+- No border-radius data captured — surfaces are likely square or subtly rounded.
+- No shadow system — depth is handled by colour layering.
+
+---
+
+## 5. Layout Principles
+
+- Section padding: ~27px vertical, ~44px horizontal — compact, information-dense.
+- Footer padding: ~36px horizontal, ~22px bottom — minimal footer presence.
+- Breakpoint tokens are explicitly defined: 375px, 768px, 1024px, 1366px, 1536px, 1921px — a thorough responsive system.
+- Touch detection breakpoints (`--bp-touch`, `--bp-nottouch`, `--bp-ipadpro`) signal interaction-aware layout adjustments.
+
+---
+
+## 6. Depth & Elevation
+
+- No box-shadow tokens. Depth is achieved through layered dark surfaces (#0c0c0c vs #111111).
+- The hero gradient creates the primary sense of spatial depth.
+- Overlays/modals flip to white — stark contrast creates modal focus without shadow.
+
+---
+
+## 7. Do's and Don'ts
+
+**Do:**
+- Keep the base near-black (#0c0c0c) as the dominant surface.
+- Apply purple (#B7ACFC) selectively to interactive and brand elements.
+- Use extreme negative tracking (-4px+) on large display text.
+- Let the hero gradient be the only multi-colour moment.
+
+**Don't:**
+- Introduce warm tones or beige backgrounds in the main layout.
+- Use Inter at heavy weights — 400 is intentional even at display sizes.
+- Add drop shadows — they fight the flat dark aesthetic.
+- Use uppercase text transforms.
+
+---
+
+## 8. Responsive Behavior
+
+- Six defined breakpoints from 375px to 1921px+ — designed for every context.
+- Touch/pointer awareness built into the design system (`hover: none` detection).
+- iPad Pro treated as a distinct breakpoint (touch + min 1024px).
+- Font sizes are viewport-relative (fractional pixel values suggest `clamp()` or vw-based scaling).
+
+---
+
+## 9. Agent Prompt Guide
+
+> Build a dark SaaS interface using Contra's design language. Canvas is near-black #0c0c0c, text white. Accent is lavender #B7ACFC applied to h3 headings, active states, and brand moments. Use Inter at weight 400 with extreme negative letter-spacing (-4px at 60px+). No shadows, no gradients outside the hero. Buttons are ghost/outline style. Dialogs invert to white. Section padding ~27px/44px. Support 6 breakpoints from 375px to 1921px.
+
+---
+
+*Generated by Sparkbites — extracted from live CSS analysis*

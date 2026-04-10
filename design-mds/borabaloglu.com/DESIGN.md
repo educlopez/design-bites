@@ -1,0 +1,84 @@
+# DESIGN.md — borabaloglu.com
+
+## 1. Visual Theme & Atmosphere
+
+Bora Baloglu's personal site is a clean, developer-personal-brand portfolio built on modern design tokens. The aesthetic is minimal-neutral: near-white backgrounds, low-chroma surfaces, and a disciplined Inter type scale that feels at home in both a developer's terminal and a design tool. The atmosphere is "thoughtful engineer who cares about craft" — it is not decorative, but it is clearly considered. The OKLCH color system signals a developer who stays current with CSS standards.
+
+## 2. Color Palette & Roles
+
+The site uses a full OKLCH token system — a significant design choice that signals precision and perceptual uniformity.
+
+| Role | Token | Value |
+|------|-------|-------|
+| Background | `--background` | `oklch(98.5% 0 0)` — near-white, no hue |
+| Foreground / text | `--foreground` | `oklch(14.1% .005 285.823)` — near-black, faint violet cast |
+| Card surface | `--card` | `oklch(97.6% .0005 143.188)` — slightly warm/green-tinted off-white |
+| Border | `--border` | `oklch(87.1% .006 286.286)` — light gray, nearly achromatic |
+| Input | `--input` | `oklch(96.7% .001 286.375)` — almost white |
+| Muted text | `--muted-foreground` | `oklch(52.4% .0025 286.348)` — mid-gray |
+| Danger | `--danger-foreground` | `oklch(57.99% .237951 29.2339)` — warm red |
+| Focus ring | `--ring` | `oklch(75.2% 0 0)` — neutral mid-gray |
+
+The chart palette spans blue, green, purple, amber, and orange — used for data visualization contexts, not UI chrome.
+
+## 3. Typography Rules
+
+**Typeface**: `Inter` with full Unicode emoji fallbacks — a serious developer-grade font stack.
+
+| Selector | Size | Weight | Notes |
+|----------|------|--------|-------|
+| h1 | 20px | 500 | Content-scale heading — modest, not editorial |
+| h2 | 16px | 400 | Body-scale subheading |
+| h3 | 14px | 400 | Label-scale |
+| body | 16px | 400 | Standard reading baseline |
+
+- Line heights are 1.4–1.75x — generous for reading.
+- No tracking adjustments — Inter's native spacing is trusted.
+- Radius token `--radius: .5rem` (8px) creates consistent softness across all rounded elements.
+- **What's absent**: no display typeface, no weight extremes (300 or 800+), no decorative text transforms.
+
+## 4. Component Stylings
+
+- **Cards**: `oklch(97.6%)` background with `oklch(87.1%)` border — barely differentiated from page, like raised paper.
+- **Inputs**: near-white fill, consistent border — form elements don't call attention to themselves.
+- **Radius**: 8px (`.5rem`) globally applied — soft but not bubbly.
+- **Focus ring**: neutral mid-gray at 75% lightness — accessible without a color accent.
+- **Status tokens**: danger (red), warning (amber), info (blue), success (green) — a complete semantic set for a technical product.
+
+## 5. Layout Principles
+
+- Card-based content organization: each entry/project card shares identical surface treatment.
+- No detected animations — deliberate static presentation.
+- The portfolio likely uses a one-column reading layout on mobile expanding to a centered max-width on desktop.
+- Minimal spacing — the OKLCH token system suggests a thoughtful spacing scale underneath.
+
+## 6. Depth & Elevation
+
+No box shadows detected. Elevation is achieved entirely through OKLCH lightness steps: page background at 98.5%, cards at 97.6%, borders at 87.1%. The perception of layering comes from these small but precise perceptual steps — OKLCH guarantees that steps feel visually consistent regardless of hue, unlike hex-based grays.
+
+## 7. Do's and Don'ts
+
+**Do:**
+- Honor the OKLCH token system — don't substitute hex values.
+- Use the semantic status tokens (danger, warning, info, success) for feedback states.
+- Keep heading sizes close to body scale — this is a reading-first layout.
+- Apply `--radius: .5rem` globally and consistently.
+
+**Don't:**
+- Add decorative shadows — the depth model is purely chromatic.
+- Use weight above 500 for headings.
+- Introduce hue into the neutral surfaces — the near-zero chroma is intentional.
+- Mix font sizes dramatically — this scale is deliberately compressed.
+
+## 8. Responsive Behavior
+
+- The card and token system is naturally responsive — OKLCH-based colors don't shift perceptually on different displays.
+- Small heading sizes (20px max) mean no dramatic typographic rescaling needed across breakpoints.
+- 8px border-radius holds at all sizes without looking over-rounded on mobile.
+- Input fields are near-white — they need adequate contrast rules for dark-mode and high-contrast contexts.
+
+## 9. Agent Prompt Guide
+
+> Create a personal developer portfolio in the style of borabaloglu.com: OKLCH-based neutral palette (near-white background, near-black text with faint violet cast, light gray borders), Inter typeface at 400–500 weight with a compressed heading scale (20px max), 8px border-radius everywhere, no shadows — elevation through lightness steps only. Include semantic status tokens for interactive feedback.
+
+*Generated by Sparkbites — extracted from live CSS analysis*

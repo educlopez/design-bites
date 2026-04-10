@@ -1,0 +1,147 @@
+# wearecollins.com — Design System
+
+## 1. Visual Theme & Atmosphere
+
+Brand identity studio with an editorial, gallery-like aesthetic. Rigorous whitespace discipline and a near-monochrome palette keep focus entirely on client work. Every pixel earns its place.
+
+**Mood:** editorial, gallery, minimal, prestigious
+
+The visual language is deliberately anti-trend — using a default serif as a bold design statement. A structured token system underpins every color decision.
+
+---
+
+## 2. Color Palette & Roles
+
+**Design tokens found:** 17 color custom properties
+
+**Named Tokens (excerpt)**
+- `--color-black`: `#000`
+- `--color-white`: `#fff`
+- `--color-off-white`: `#f8f8f7`
+- `--color-off-black`: `#140700`
+- `--color-mid-white`: `#d0d0c8`
+- `--color-mid-black`: `#5e5855`
+- `--color-grey-10`: `#1d1d1d`
+- `--color-grey-30`: `#4c4c4c`
+- `--color-grey-60`: `#7a7a7a`
+- `--color-grey-80`: `#ccc`
+- `--color-grey-97`: `#f7f7f7`
+- `--color-brian-orange`: `#ff7600`
+
+**Palette philosophy:** Strict near-monochrome. Any accent would compete with the work on display.
+
+---
+
+## 3. Typography Rules
+
+- **h1**: Portrait Text / 72px / wt 400 / tracking -1.44px / lh 72px
+- **h2**: Graphik / 16px / wt 400 / tracking -0.16px / lh 20.8px
+- **body**: Times / 16px / wt 500
+- **p**: Graphik / 12px / wt 400 / tracking -0.64px / lh 12px
+- **a**: Times / 16px / wt 500
+- **button**: Arial / 13.3333px / wt 400
+- **input**: Graphik / 16px / wt 400 / tracking -0.16px / lh 16px
+- **dialog**: Times / 16px / wt 500
+- **label**: Graphik / 16px / wt 400 / tracking -0.16px / lh 20.8px
+
+**Custom typefaces:** Portrait Text, Graphik
+
+**Typography philosophy:** The serif is the statement — it refuses the expected grotesque of the tech industry. It reads as confidence, not carelessness.
+
+**Headline tracking:** -1.44px — tight tracking signals confidence and editorial intent.
+**Headline scale:** h1 at 72px, h2 at 16px — large-scale type creates immediate visual impact.
+
+---
+
+## 4. Component Stylings
+
+**Border radius:** No border-radius — sharp edges throughout.
+
+
+**Shadows:** Shadows are absent — depth through color and spacing alone.
+
+- Component data limited — apply global radius and color rules consistently.
+
+---
+
+## 5. Layout Principles
+
+
+
+
+
+**Layout philosophy:** Grid-based editorial layout. Alignment is strict; irregular spacing within that grid creates dynamism.
+
+Spacing cadence: Fluid spacing tokens via `clamp()` — scales smoothly between breakpoints without abrupt jumps.
+
+---
+
+## 6. Depth & Elevation
+
+**Flat design** — no box shadows. Depth communicates through:
+- Background color contrast between sections
+- Border lines as separators
+- Typography weight shifts
+- Proximity and whitespace
+
+This is an intentional choice: shadows would add visual noise to a carefully restrained palette.
+
+---
+
+## 7. Do's and Don'ts
+
+**Do:**
+- Let client work breathe — generous whitespace is non-negotiable
+- Use only the defined typefaces (Portrait Text, Graphik) — system fonts will break the brand voice
+- Keep all edges sharp — border-radius destroys the visual discipline
+- Keep elevation flat — adding shadows would contradict the design language
+
+**Don't:**
+- Apply dark mode as an afterthought — it requires its own color decisions
+- Use accent colors for decoration — there are none, and that is deliberate
+- Mix more than two typeface families — typographic chaos undermines brand clarity
+- Add gradient backgrounds unless they exist in the design system
+- Use stock UI component defaults (e.g., Bootstrap/MUI) without full restyling
+
+---
+
+## 8. Responsive Behavior
+
+**Headline scale:**
+- Desktop: 72px
+- Suggest mobile: 40px–47px
+
+**Body text:** 16px — standard; consider 15px on mobile for comfort
+
+**Safe areas:** Respects iOS/Android notch insets via `env(safe-area-inset-*)` — already mobile-native ready.
+
+**Layout breakpoints:** Transition from multi-column editorial grid to single-column stack; maintain generous margins at all sizes.
+
+**Navigation:** Apply standard mobile nav pattern: fixed header, collapsible menu.
+
+---
+
+## 9. Agent Prompt Guide
+
+When asked to create UI in the style of **wearecollins.com**, instruct the agent:
+
+```
+Design in the style of wearecollins.com: editorial, gallery, minimal, prestigious.
+Use clean backgrounds with high contrast text.
+Primary typeface: Portrait Text, body: Times.
+Sharp corners on all elements — no border-radius.
+No shadows — flat design.
+Strictly monochrome — no accent colors.
+Generous whitespace. Content is the hero.
+Avoid: generic card components, gradient backgrounds, icon-heavy layouts, rounded pill buttons.
+```
+
+**Key design signals to reference:**
+- Custom font: Portrait Text — load via CDN if reproducing
+- Shadow-free — use border or background contrast for separation
+- Zero border-radius — rectangular everything
+- Color temperature: Neutral with controlled accent
+
+---
+
+*Generated by Sparkbites — extracted from live CSS analysis*

@@ -1,0 +1,97 @@
+# flask.do — Design Reference
+
+## 1. Visual Theme & Atmosphere
+
+flask.do operates in the premium dark SaaS register — a near-black canvas (`rgb(9,9,11)`) that immediately signals depth and seriousness. The design is spare and focused: system UI typography, a strict dark token system inherited from shadcn/ui conventions, and restrained use of space. The only moments of color are a white-on-dark footer inversion and a destructive red (`rgb(220,38,38)`) for status indicators.
+
+This is the archetype of a Next.js/Tailwind dark mode application — every token is named and semantic. The absence of a custom display typeface is itself a statement: the product is the personality.
+
+## 2. Color Palette & Roles
+
+| Role | Value | Notes |
+|------|-------|-------|
+| Background | `rgb(9,9,11)` (--background) | Near-black, cool |
+| Foreground | `rgb(250,250,250)` (--foreground) | Near-white text |
+| Card background | `#09090b` | Same as background |
+| Border | `rgb(42,42,42)` (--border) | Dark gray — subtle division |
+| Secondary | dark (--secondary) | Dark UI surfaces |
+| Muted | `rgb(44,44,44)` | Background for secondary surfaces |
+| Muted foreground | ~65% white opacity | Secondary text |
+| Destructive | `rgb(220,38,38)` | Alert/status indicator — red |
+| Inbetween | `rgb(26,26,26)` | Mid-layer surface |
+| Footer | `rgb(250,250,250)` | Inverted — white footer on black |
+
+**What's absent:** No brand color, no accent hue beyond the destructive red. The design relies entirely on its dark surface system and the Tailwind CSS token conventions.
+
+## 3. Typography Rules
+
+The entire site uses `ui-sans-serif, system-ui, sans-serif` — the browser's default system font stack. This is not a limitation but a philosophy: native rendering, zero font loading, perfect legibility.
+
+| Element | Family | Size | Weight | Notes |
+|---------|--------|------|--------|-------|
+| H1 | system-ui | 48px | 600 | −1.2px tracking, 110% line height |
+| Body | system-ui | 16px | 400 | 24px line height |
+| Para / subtext | system-ui | 20px | 500 | −0.5px tracking, 24px line height |
+| Links | system-ui | 16px | 400 | Normal tracking |
+| Buttons | system-ui | 18px | 600 | 28px line height |
+| Blockquote | system-ui | 14px | 400 | Small, muted |
+
+OT features cv01, cv02, cv03, ss01, ss02 are applied globally — maximizing the system font's character rendering potential.
+
+## 4. Component Stylings
+
+- **Primary button:** Pill-shaped (`9999px` radius), white fill on black
+- **Status badges:** Pill-shaped (`9999px`), destructive red fill
+- **Bottom-only pill:** `0px 0px 9999px 9999px` — rounded at base only, flat top
+- **Cards:** Very subtle dark surface (`rgb(26,26,26)` to `rgb(44,44,44)`)
+- **Footer:** Full color inversion — white background, near-black text
+- **Borders:** `rgb(42,42,42)` — barely visible on dark ground
+- **Top border accent:** `rgb(59,59,59)` for button top edge — slight depth hint
+
+## 5. Layout Principles
+
+- Six breakpoints: 600, 640, 767, 768, 1024, 1400px
+- Tailwind utility-first spacing
+- `--radius: 0.75rem` (12px) as the base radius token
+- Content max-width likely ~1024px centered
+- Dense, information-forward layout — no large hero imagery
+
+## 6. Depth & Elevation
+
+Sophisticated shadow scale from very subtle to dramatic:
+- **Base:** `rgba(0,0,0,0.5) 0px 4px 16px` — medium depth
+- **Medium:** `rgba(0,0,0,0.3) 0px 4px 6px` — component separation
+- **Deep:** `rgba(0,0,0,0.6) 0px 20px 25px` — significant elevation
+- **Deepest:** `rgba(0,0,0,0.5) 0px 25px 50px` — modal-level depth
+
+All shadows use pure black at varied opacity — appropriate for a dark ground.
+
+## 7. Do's and Don'ts
+
+**Do:**
+- Use system-ui throughout — this is the brand choice
+- Use the shadcn/ui semantic token naming (`--background`, `--foreground`, `--muted`)
+- Apply the pill button shape (`9999px`) for primary CTAs
+- Use the `0px 0px 9999px 9999px` radius for the signature bottom-pill element
+- Apply deep black shadows at 0.3–0.6 opacity for elevation on dark ground
+
+**Don't:**
+- Add custom fonts — system-ui is the point
+- Use color accents beyond the destructive red
+- Add warm tones — the palette is cool-dark throughout
+- Use white surfaces other than the inverted footer
+
+## 8. Responsive Behavior
+
+- Six breakpoints with fine control around 767–768px (a common iOS boundary)
+- 1400px breakpoint accommodates ultra-wide displays
+- Dark mode is the only mode — no light mode tokens present
+- Type scale reduces proportionally; system font adapts natively to device DPI
+
+## 9. Agent Prompt Guide
+
+> "Design in the style of flask.do: near-black canvas (`rgb(9,9,11)`), system-ui/ui-sans-serif exclusively at weight 600 for display and 400 for body. shadcn/ui dark token system. Pill-shaped buttons (`9999px`). Borders at `rgb(42,42,42)`. Deep black shadows (0.5–0.6 opacity) for elevation. Only accent color is destructive red. Footer inverted to white. No custom fonts, no brand color beyond destructive states."
+
+---
+
+*Generated by Sparkbites — extracted from live CSS analysis*
