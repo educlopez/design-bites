@@ -12,9 +12,10 @@
 </p>
 
 <p align="center">
-  <a href="https://sparkbites.dev">Website</a> &bull;
-  <a href="#available-design-systems">Browse files</a> &bull;
+  <a href="https://sparkbites.dev/design-bites">Browse on sparkbites.dev</a> &bull;
   <a href="#how-to-use">Get started</a> &bull;
+  <a href="#cli">CLI</a> &bull;
+  <a href="#how-these-are-generated">How it works</a> &bull;
   <a href="https://x.com/educalvolpz">Twitter</a>
 </p>
 
@@ -37,16 +38,29 @@ Introduced by [Google Stitch](https://stitch.withgoogle.com), it follows the sam
 
 ## How to use
 
-**1. Pick a design system** from the [table below](#available-design-systems).
+### Option 1 — CLI (recommended)
 
-**2. Copy the file** into your project root:
+The fastest way. One command drops the file in your project root:
 
 ```bash
-# Download directly
+npx design-bites add linear.app
+```
+
+See the [CLI section](#cli) below for more commands.
+
+### Option 2 — Browse and copy
+
+Browse the full catalog on [**sparkbites.dev/design-bites**](https://sparkbites.dev/design-bites) — each website has a detail page with its design analysis, palette, fonts, and a one-click install command.
+
+Or pull the file directly from GitHub:
+
+```bash
 curl -o DESIGN.md https://raw.githubusercontent.com/educlopez/design-bites/main/design-mds/linear.app/DESIGN.md
 ```
 
-**3. Tell your AI agent to use it:**
+### Option 3 — Tell your AI agent to use it
+
+Once the file is in your project root:
 
 ```
 Use DESIGN.md as the design reference for this UI task.
@@ -56,15 +70,65 @@ Works with **Claude**, **Cursor**, **GitHub Copilot**, **Google Stitch**, and an
 
 ---
 
+## CLI
+
+Install DESIGN.md files into any project with a single command. Zero dependencies, Node 18+.
+
+```bash
+# Install a design system
+npx design-bites add linear.app
+
+# List all available design systems
+npx design-bites list
+
+# Fuzzy search
+npx design-bites search stripe
+
+# Show help / version
+npx design-bites --help
+npx design-bites --version
+```
+
+### How `add` works
+
+1. Fetches the index of available domains from this repo
+2. Resolves the domain (case-insensitive, strips `www.`)
+3. If not found, suggests fuzzy matches
+4. Downloads the `DESIGN.md` file
+5. Writes it to `./DESIGN.md` (or `./{domain}/DESIGN.md` if one already exists)
+
+### Telemetry
+
+The CLI sends an anonymous install ping to `sparkbites.dev/api/cli/installs` so each design system shows how many times it has been installed. No personal data, no tracking cookies — just a count per domain.
+
+Disable with:
+
+```bash
+DESIGN_BITES_TELEMETRY_DISABLED=1 npx design-bites add linear.app
+```
+
+---
+
 ## Available design systems
+
+**270+ design systems** auto-extracted from the world's best-designed websites. Featured picks:
 
 | Website | Category | Preview |
 |---------|----------|---------|
 | [**Linear**](https://linear.app) | Developer Tools | [`DESIGN.md`](./design-mds/linear.app/DESIGN.md) |
 | [**Stripe**](https://stripe.com) | Fintech | [`DESIGN.md`](./design-mds/stripe.com/DESIGN.md) |
 | [**Vercel**](https://vercel.com) | Developer Tools | [`DESIGN.md`](./design-mds/vercel.com/DESIGN.md) |
+| [**Notion-style portfolios**](./design-mds) | Personal Site | 100+ entries |
+| [**SaaS & AI products**](./design-mds) | Productivity / AI | 80+ entries |
+| [**Agencies & studios**](./design-mds) | Agency | 30+ entries |
 
-> More coming soon. [Request a website](https://github.com/educlopez/design-bites/issues/new?title=Request:+website-name.com&labels=request) by opening an issue.
+### Browse the full catalog
+
+- **Web UI** → [**sparkbites.dev/design-bites**](https://sparkbites.dev/design-bites) (searchable, with live previews and install stats)
+- **Raw files** → browse the [`design-mds/`](./design-mds) folder
+- **Machine-readable index** → [`index.json`](./index.json)
+
+> Missing a site you love? [Request a website](https://github.com/educlopez/design-bites/issues/new?title=Request:+website-name.com&labels=request) by opening an issue.
 
 ---
 
