@@ -12,6 +12,13 @@
 </p>
 
 <p align="center">
+  <a href="https://www.npmjs.com/package/design-bites"><img src="https://img.shields.io/npm/v/design-bites?color=%23FF5C00&label=npm&style=flat-square" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/design-bites"><img src="https://img.shields.io/npm/dw/design-bites?color=%23FF5C00&label=downloads&style=flat-square" alt="npm downloads" /></a>
+  <a href="https://github.com/educlopez/design-bites/blob/main/LICENSE"><img src="https://img.shields.io/github/license/educlopez/design-bites?color=%23FF5C00&style=flat-square" alt="license" /></a>
+  <a href="https://github.com/educlopez/design-bites"><img src="https://img.shields.io/github/stars/educlopez/design-bites?color=%23FF5C00&style=flat-square" alt="GitHub stars" /></a>
+</p>
+
+<p align="center">
   <a href="https://sparkbites.dev/design-bites">Browse on sparkbites.dev</a> &bull;
   <a href="#how-to-use">Get started</a> &bull;
   <a href="#cli">CLI</a> &bull;
