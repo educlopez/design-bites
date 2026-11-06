@@ -1,4 +1,4 @@
-# skills.smoothui.dev — Design System
+# ui-craft.smoothui.dev — Design System
 
 ## 1. Visual Theme & Atmosphere
 
